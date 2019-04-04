@@ -1,23 +1,14 @@
 properties([pipelineTriggers([githubPush()])])
 
-pipeline {
-    agent {
-        docker {
-            image 'node:6-alpine' 
-            args '-p 3000:3000' 
-        }
+
+node {
+    stage ('Checkout'){
+        git branch: 'master', url: 'https://github.com/cryade/simple-node-js-react-npm-app.git'
     }
-     environment {
-         HTTPS_PROXY = '16.85.88.60'
-         HTTP_PROXY = '16.85.88.60'
-         PROXY_ENABLED = 'TRUE'
-        CI = 'true'
+    stage ('Build'){
+        // steps
     }
-    stages {
-        stage('Build') { 
-            steps {
-                sh 'npm install' 
-            }
-        }
+    stage ('Test'){
+        // steps
     }
-}
+}    
