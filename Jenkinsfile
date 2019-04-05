@@ -8,6 +8,7 @@ pipeline {
     environment { 
         HTTPS_PROXY = 'http://16.85.88.60:8080'
         HTTP_PROXY  = 'http://16.85.88.60:8080'
+      
         PROXY_ENABLED = 'TRUE'
         CI = 'true'
     }
